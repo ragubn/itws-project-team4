@@ -1,3 +1,24 @@
+<?php
+try {
+  $dbname = 'rre';
+  $user = 'root';
+  $pass = '';
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+}
+catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
+if (isset($_POST['submitRRE'])) {
+  $stmt = $dbconn->prepare("INSERT INTO research (title, category, rplink, overview, submitter, email) VALUES (:title, :category, :rplink, :overview, :submitter, :email)");
+  // the execute statement here
+  $stmt->execute(array(':title' => $_POST['title'], ':category' => $_POST['category'], ':rplink' => $_POST['rplink'], ':overview' => $_POST["abstract"],':submitter' => $_SESSION["fullname"], ':email' => $_SESSION["email"]));
+  $msg = "You have successfully submitted your research. You have been logged out.";
+}
+if(isset($_SESSION['fullname'])){
+  session_destroy();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +68,7 @@
     </div>
     <div class="col-sm-8 text-left">
       <h1>Research</h1>
-      <p>Use the search bar below to find research.</p>
+      <p>Use the search bar below to find research, or click on a category to show all research in that area.</p>
       <div class="container">
       <div class="row">
         <div class="col-md-12">

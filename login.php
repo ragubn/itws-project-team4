@@ -1,5 +1,7 @@
 <?php
-
+if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
+  session_destroy();
+}
 try {
   $dbname = 'rre';
   $user = 'root';
@@ -18,11 +20,13 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
   $salt = ($res) ? $res[0] : '';
   $salted = hash('sha256', $salt . $_POST['password']);
 
-  $login_stmt = $dbconn->prepare('SELECT fullname FROM users WHERE username=:username AND pass=:pass');
+  $login_stmt = $dbconn->prepare('SELECT fullname, email FROM users WHERE username=:username AND pass=:pass');
   $login_stmt->execute(array(':username'=>$_POST['username'], ':pass'=>$salted));
 
+  session_start();
   if($user = $login_stmt->fetch()){
     $_SESSION['fullname']=$user['fullname'];
+    $_SESSION['email']=$user['email'];
   }
 
   else {

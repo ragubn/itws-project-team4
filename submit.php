@@ -1,9 +1,8 @@
-<!-- <?php
-session_start();
+<?php
 if(!isset($_SESSION['fullname'])){
-   header("Location: ./login.php");
+   //header("Location: ./login.php");
 }
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,23 +41,40 @@ if(!isset($_SESSION['fullname'])){
     </div>
   </div>
 </nav>
-<form  class="form" action="" method="post">
+<form  class="form" action="./research.php" method="post">
     <h3>Fill out the form below to submit your Research Paper</h3>
     <div class="field">
-        <label for="name">Title of Research Paper:</label>
+        <label for="name">Title of Research Project:</label>
         <input class="title" type="text" id="name" name="title" />
     </div>
     <div class="field">
-        <label for="abs">Abstract for Research Paper:</label>
-        <textarea class="abs" id="abs" name="abstract"></textarea>
+        <label for="name">Rensselaer Categorization:</label>
+        <select name="category">
+          <option value="1">Biotechnology and the Life Sciences</option>
+          <option value="2">Computational Science and Engineering</option>
+          <option value="3">Energy, Environment, and Smart Systems</option>
+          <option value="4">Media, Arts, Science and Technology</option>
+          <option value="5">Nanotechnology and Advanced Materials</option>
+        </select>
     </div>
     <div class="field">
-        <label for="rp">Research Paper:</label>
-        <textarea class="rp" id="rp" name="rptext"></textarea>
+        <label for="rp">Link to Published Research Paper (if exists):</label>
+        <input class="title" name="rplink" type="url"></input>
     </div>
-    
+    <div class="field">
+        <label for="abs">Overview of Research (You may use a published abstract here):</label>
+        <textarea class="abs" id="abs" name="abstract" type="text" placeholder="If you have published research, you may use the abstract from your paper. Otherwise, please write an overview of the research that you do."></textarea>
+    </div>
+    <div class="field">
+        <label for="name">Name:</label>
+        <input  name="name" type="text" value=<?php echo $_SESSION["fullname"];?> disabled></input>
+    </div>
+    <div class="field">
+        <label for="email">E-Mail:</label>
+        <input  name="email" type="text" value=<?php echo $_SESSION["email"];?> disabled></input>
+    </div>
     <div class="button">
-        <button type="submit">Submit</button>
+        <button type="submit" name="submitRRE">Submit</button>
     </div>
 </form>
 </body>
