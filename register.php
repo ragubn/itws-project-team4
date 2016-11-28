@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="register.css" type="text/css" />
 </head>
@@ -45,45 +44,35 @@
       <div class="login-form-main-message"></div>
       <div class="main-login-form">
         <div class="login-group">
-          <div class="form-group">
-            <label for="reg_username" class="sr-only">Email address</label>
+          <div class="form-group has-error has-feedback">
+            <label for="reg_username" class="sr-only">Username</label>
             <input type="text" class="form-control" id="reg_username" name="username" placeholder="username">
           </div>
-          <div class="form-group">
-            <label for="reg_password" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="reg_password" name="password" placeholder="password">
+          <div class="form-group has-error">
+            <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
           </div>
-          <div class="form-group">
-            <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-            <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm" placeholder="confirm password">
+          <div class="form-group has-error">
+            <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
           </div>
 
-          <div class="form-group">
+          <div class="form-group has-error">
             <label for="reg_email" class="sr-only">Email</label>
-            <input type="text" class="form-control" id="reg_email" name="email" placeholder="email">
+            <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
           </div>
-          <div class="form-group">
+          <div class="form-group has-error">
             <label for="reg_fullname" class="sr-only">Full Name</label>
-            <input type="text" class="form-control" id="reg_fullname" name="fullname" placeholder="full name">
+            <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
           </div>
 
-          <div class="form-group login-group-checkbox">
-            <input type="radio" class="" name="sex" id="male" value = "m">
-            <label for="male">male</label>
-
-            <input type="radio" class="" name="sex" id="female" value = "f">
-            <label for="female">female</label>
-          </div>
-
-          <div class="form-group login-group-checkbox">
+          <div class="form-group login-group-checkbox has-error">
             <input type="checkbox" class="" id="reg_agree" name="reg_agree">
-            <label for="reg_agree">i agree with <a href="#">terms</a></label>
+            <label for="reg_agree">I agree with <a href="https://www.rpi.edu/dept/finance/docs/research/STANDARD_NDA.pdf">Terms and Conditions</a></label>
           </div>
         </div>
-        <button type="submit" class="login-button" name="register"><i class="fa fa-chevron-right">Go!</i></button>
+        <button type="submit" class="login-button" name="register"><i class="fa fa-chevron-right"></i></button>
       </div>
       <div class="etc-login-form">
-        <p>Already have an account? <a href="login.php">login here</a></p>
+        <p>Already have an account? <a href="login.php">Login here</a></p>
       </div>
     </form>
   </div>
@@ -93,6 +82,11 @@
 <footer class="container-fluid text-center">
   <p>RPI 2016</p>
 </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="register.js"></script>
 
 </body>
 </html>
