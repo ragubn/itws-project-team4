@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 session_start();
 if(!isset($_SESSION['fullname'])){
    header("Location: ./login.php");
 }
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ if(!isset($_SESSION['fullname'])){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-  <link rel="stylesheet" href="research.css" type="text/css" />
+  <link rel="stylesheet" href="submit.css" type="text/css" />
 </head>
 <body>
 
@@ -42,3 +42,24 @@ if(!isset($_SESSION['fullname'])){
     </div>
   </div>
 </nav>
+<form  class="form" action="" method="post">
+    <h3>Fill out the form below to submit your Research Paper</h3>
+    <div class="field">
+        <label for="name">Title of Research Paper:</label>
+        <input class="title" type="text" id="name" name="title" />
+    </div>
+    <div class="field">
+        <label for="abs">Abstract for Research Paper:</label>
+        <textarea class="abs" id="abs" name="abstract"></textarea>
+    </div>
+    <div class="field">
+        <label for="rp">Research Paper:</label>
+        <textarea class="rp" id="rp" name="rptext"></textarea>
+    </div>
+    
+    <div class="button">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>
