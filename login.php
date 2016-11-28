@@ -33,6 +33,32 @@ if (isset($_POST['login']) && $_POST['login'] == 'Login') {
 if (isset($_SESSION['fullname'])){
   header("Location: ./login.php");
 }
+
+if (isset($_POST['register'])) {
+
+  if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['password_confirm']) || !isset($_POST['fullname']) || !isset($_POST['email']) || !isset($_POST['sex'])) {
+    header("Location: ./register.php");
+  }
+  if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password_confirm']) || empty($_POST['fullname']) || empty($_POST['email']) || empty($_POST['sex'])) {
+    header("Location: ./register.php");
+  }
+  if($_POST["password"]!=$_POST["password_confirm"]){
+    header("Location: ./register.php");
+  }
+
+  // Apply salt before hashing here
+  $salt = hash('sha256', uniqid(mt_rand(), true));
+
+  // Apply salt before hashing
+  $salted = hash('sha256', $salt . $_POST['pass']);
+
+  // Store the salt with the password, so we can apply it again and check the result
+  // prepared statement is here
+  $stmt = $dbconn->prepare("INSERT INTO users (username, pass, salt, fullname, email, sex) VALUES (:username, :pass, :salt, :fullname, :email, :sex)");
+  // the execute statement here
+  $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':fullname' => $_POST["fullname"],':email' => $_POST["email"], ':sex' => $_POST["sex"]));
+  $msg = "You have successfully registered, please login to submit your research.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +101,12 @@ if (isset($_SESSION['fullname'])){
 
 <div class="text-center" style="padding:50px 0">
   <div class="logo">login</div>
-  <div class ="logosub">it is only necesasry to login if you want to submit research.</div>
+  <div class="logosub">it is only necesasry to login if you want to submit research.</div>
+  <?php
+  if (isset($_POST['register'])) {
+    echo '<div class="logosub">'.$msg.'</div>';
+  }
+  ?>
   <!-- Main Form -->
   <div class="login-form-1">
     <form id="login-form" class="text-left" method="post" action="login.php">
