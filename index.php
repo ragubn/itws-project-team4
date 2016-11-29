@@ -43,18 +43,17 @@ session_destroy();
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <h4>Innovations</h4>
       <div>
-        <p><a href="#">Novel Therapy for Back Pain</a></p>
-        <p>Researchers have identified a mechanism with the potential to arrest or even reverse degeneration of a painful intervertebral disc.</p>
+        <h4>Rensselaer Mission Statement</h4>
+        <p>Rensselaer educates the leaders of tomorrow for technologically based careers. We celebrate discovery, and the responsible application of technology, to create knowledge and global prosperity.</p>
       </div>
       <div>
-        <p><a href="#">An Enormous Corrugated Galaxy </a></p>
-        <p>The Milky Way galaxy is at least 50 percent larger than is commonly estimated, according to an international team led by Professor Heidi Jo Newberg. </p>
-      </div>
-       <div>
-        <p><a href="#">Weathering the Storm</a></p>
-        <p>Rensselaer civil and environmental engineers are protecting roofs from caving in under the weight of snow by advocating for well-crafted building codes, and investigating building performance, warnings, and human behavior during tornadoes.  </p>
+        <h4>Institutional Research and Assessment Mission Statement </h4>
+        <p>The Office of Institutional Research and Assessment (OIRA) is an information source for internal Institute personnel and for external constituencies seeking data regarding Rensselaer, and a campus wide coordinating point for faculty development and student learning assessment. The OIRA is divided into two primary functions:</p>
+        <ul>
+          <li>Institutional research</li>
+          <li>Faculty development and student learning assessment</li>
+       </ul>
       </div>
     </div>
     <div class="col-sm-8 text-left">
@@ -63,19 +62,8 @@ session_destroy();
       <hr>
     </div>
     <div class="col-sm-2 sidenav">
-      <h4>Highlights</h4>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZUZVD2ImSCs" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div>
-        <p>Partnerships: Icahn School of Medicine at Mount Sinai and Rensselaer</p>
-      </div>
-      <div class="embed-responsive embed-responsive-16by9">
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/SCWIp8fFd_M" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div>
-        <p>Immersive Learning at Rensselaer: Geo Explorer </p>
-      </div>
+      <h4>Institutional research</h4>
+      <p>The Rensselaer research enterprise in FY2013 has surpassed $100M in sponsored research expenditures broadly divided among five Signature Research Thrusts: Biotechnology and the Life Sciences; Computational Science and Engineering; Media, Arts, Science, and Technology; Energy, Environment, and Smart Systems; and Nanotechnology and Advanced Materials. Emanating from these pillars of the Rensselaer research ecosystem are five broad research platforms that have resulted from nearly $1.25 billion investment by the university. Through these research platforms, Rensselaer researchers are addressing global challenges with both urgency and impact.</p>
     </div>
   </div>
 </div>
