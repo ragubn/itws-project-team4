@@ -12,41 +12,19 @@ catch (Exception $e) {
   echo "Error: " . $e->getMessage();
 }
 
-if (isset($_POST['login']) && $_POST['login'] == 'Login') {
-
-  $salt_stmt = $dbconn->prepare('SELECT salt FROM users WHERE username=:username');
-  $salt_stmt->execute(array('username'=>$_POST['username']));
-  $res = $salt_stmt->fetch();
-  $salt = ($res) ? $res[0] : '';
-  $salted = hash('sha256', $salt . $_POST['password']);
-
-  $login_stmt = $dbconn->prepare('SELECT fullname, email FROM users WHERE username=:username AND pass=:pass');
-  $login_stmt->execute(array(':username'=>$_POST['username'], ':pass'=>$salted));
-
-  session_start();
-  if($user = $login_stmt->fetch()){
-    $_SESSION['fullname']=$user['fullname'];
-    $_SESSION['email']=$user['email'];
-  }
-
-  else {
-    $err = 'Incorrect username or password.';
-  }
-}
-
 if (isset($_SESSION['fullname'])){
   header("Location: ./login.php");
 }
 
 if (isset($_POST['register'])) {
 
-  if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['password_confirm']) || !isset($_POST['fullname']) || !isset($_POST['email']) || !isset($_POST['sex'])) {
+  if (!isset($_POST['username']) || !isset($_POST['reg_password']) || !isset($_POST['reg_password_confirm']) || !isset($_POST['reg_fullname']) || !isset($_POST['reg_email'])) {
     header("Location: ./register.php");
   }
-  if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password_confirm']) || empty($_POST['fullname']) || empty($_POST['email']) || empty($_POST['sex'])) {
+  if (empty($_POST['username']) || empty($_POST['reg_password']) || empty($_POST['reg_password_confirm']) || empty($_POST['reg_fullname']) || empty($_POST['reg_email'])) {
     header("Location: ./register.php");
   }
-  if($_POST["password"]!=$_POST["password_confirm"]){
+  if($_POST["reg_password"]!=$_POST["reg_password_confirm"]){
     header("Location: ./register.php");
   }
 
@@ -54,13 +32,13 @@ if (isset($_POST['register'])) {
   $salt = hash('sha256', uniqid(mt_rand(), true));
 
   // Apply salt before hashing
-  $salted = hash('sha256', $salt . $_POST['pass']);
+  $salted = hash('sha256', $salt . $_POST['reg_password']);
 
   // Store the salt with the password, so we can apply it again and check the result
   // prepared statement is here
-  $stmt = $dbconn->prepare("INSERT INTO users (username, pass, salt, fullname, email, sex) VALUES (:username, :pass, :salt, :fullname, :email, :sex)");
+  $stmt = $dbconn->prepare("INSERT INTO users (username, password, salt, fullname, email) VALUES (:username, :pass, :salt, :fullname, :email)");
   // the execute statement here
-  $stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':fullname' => $_POST["fullname"],':email' => $_POST["email"], ':sex' => $_POST["sex"]));
+  echo($stmt->execute(array(':username' => $_POST['username'], ':pass' => $salted, ':salt' => $salt, ':fullname' => $_POST["reg_fullname"],':email' => $_POST["reg_email"])));
   $msg = "You have successfully registered, please login to submit your research.";
 }
 ?>
@@ -113,7 +91,7 @@ if (isset($_POST['register'])) {
   ?>
   <!-- Main Form -->
   <div class="login-form-1">
-    <form id="login-form" class="text-left" method="post" action="login.php">
+    <form id="login-form" class="text-left" method="post" action="./submit.php">
       <div class="login-form-main-message"></div>
       <div class="main-login-form">
         <div class="login-group">
@@ -126,7 +104,7 @@ if (isset($_POST['register'])) {
             <input type="password" class="form-control" id="lg_password" name="password" placeholder="password">
           </div>
         </div>
-        <button type="submit" class="login-button" name="login"><i class="fa fa-chevron-right"></i></button>
+        <button type="submit" class="login-button" name="login" value="Login"><i class="fa fa-chevron-right"></i></button>
       </div>
       <div class="etc-login-form">
         <p>new user? <a href="register.php">create new account</a></p>

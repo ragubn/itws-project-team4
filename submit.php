@@ -1,6 +1,39 @@
 <?php
+session_start();
+if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
+  session_destroy();
+}
+try {
+  $dbname = 'rre';
+  $user = 'root';
+  $pass = '';
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+}
+catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
+if (isset($_POST['login'])) {
+  $salt_stmt = $dbconn->prepare('SELECT salt FROM users WHERE username=:username');
+  $salt_stmt->execute(array('username'=>$_POST['username']));
+  $res = $salt_stmt->fetch();
+  $salt = ($res) ? $res[0] : '';
+  $salted = hash('sha256', $salt . $_POST['password']);
+
+  $login_stmt = $dbconn->prepare('SELECT fullname, email FROM users WHERE username=:username AND password=:pass');
+  $login_stmt->execute(array(':username'=>$_POST['username'], ':pass'=>$salted));
+
+  if($user = $login_stmt->fetch()){
+    $_SESSION['fullname']=$user['fullname'];
+    $_SESSION['email']=$user['email'];
+  }
+
+  else {
+    $err = 'Incorrect username or password.';
+    header("Location: ./login.php");
+  }
+}
 if(!isset($_SESSION['fullname'])){
-   //header("Location: ./login.php");
+  header("Location: ./login.php");
 }
 ?>
 
