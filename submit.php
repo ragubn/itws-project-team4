@@ -1,8 +1,8 @@
 <?php
-//session_start();
-// if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
-//   session_destroy();
-// }
+session_start();
+if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
+  session_destroy();
+}
 try {
   $dbname = 'rre';
   $user = 'root';
@@ -32,9 +32,9 @@ if (isset($_POST['login'])) {
     header("Location: ./login.php");
   }
 }
-// if(!isset($_SESSION['fullname'])){
-//   header("Location: ./login.php");
-// }
+if(!isset($_SESSION['fullname'])){
+  header("Location: ./login.php");
+}
 ?>
 
 <!DOCTYPE html>
