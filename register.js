@@ -6,7 +6,7 @@
 	// Validation
   $("#register-form").validate({
   	rules: {
-      reg_username: "required",
+      username: "required",
   	  reg_password: {
   			required: true,
   			minlength: 7

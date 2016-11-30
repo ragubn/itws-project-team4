@@ -44,7 +44,7 @@
       <div class="login-form-main-message"></div>
       <div class="main-login-form">
         <div class="login-group">
-          <div class="form-group has-error has-feedback">
+          <div class="form-group has-error">
             <label for="reg_username" class="sr-only">Username</label>
             <input type="text" class="form-control" id="reg_username" name="username" placeholder="username">
           </div>
