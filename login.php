@@ -56,7 +56,7 @@ if (isset($_POST['register'])) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="login.css" type="text/css" />
-
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 
@@ -80,7 +80,7 @@ if (isset($_POST['register'])) {
         <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
+        <li class="active"><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
       </ul>
     </div>
   </div>

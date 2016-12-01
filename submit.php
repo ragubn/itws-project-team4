@@ -48,6 +48,7 @@ if(!isset($_SESSION['fullname'])){
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="submit.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 

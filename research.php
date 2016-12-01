@@ -75,7 +75,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
     else if ($result['category']==5){
       $cat = 'Nanotechnology and Advanced Materials';
     }
-    $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td>'.$result['rplink'].'</td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td></tr>';
+    $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td><a href='.$result['rplink'].'>'.$result['rplink'].'</a></td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td></tr>';
   }
   $print = $print.'</table>';
   if($num == 0){
@@ -96,6 +96,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="research.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 

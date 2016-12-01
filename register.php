@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="register.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 
@@ -69,7 +70,7 @@
 
           <div class="form-group login-group-checkbox has-error">
             <input type="checkbox" class="" id="reg_agree" name="reg_agree">
-            <label for="reg_agree">I agree with <a href="https://www.rpi.edu/dept/finance/docs/research/STANDARD_NDA.pdf">Terms and Conditions</a></label>
+            <label for="reg_agree">I agree with <a href="http://dotcio.rpi.edu/policy/comec">Terms and Conditions</a></label>
           </div>
         </div>
         <button type="submit" class="login-button" name="register"><i class="fa fa-chevron-right"></i></button>

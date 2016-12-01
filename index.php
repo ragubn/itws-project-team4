@@ -14,6 +14,7 @@ session_destroy();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="index.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 

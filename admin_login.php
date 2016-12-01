@@ -16,6 +16,7 @@ session_destroy();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="admin_login.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 
@@ -36,7 +37,7 @@ session_destroy();
         <li><a href="research.php">Research</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
+        <li class="active"><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>

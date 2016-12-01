@@ -71,6 +71,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
   <link rel="stylesheet" href="index.css" type="text/css" />
+  <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
 
@@ -90,6 +91,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
       <ul class="nav navbar-nav">
         <li><a href="index.php">Home</a></li>
         <li><a href="research.php">Research</a></li>
+        <li class="active"><a href="admin.php">Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
@@ -100,10 +102,10 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
     </div>
   </div>
 </nav>
-<?php
-echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
-?>
 <div class="container">
+  <?php
+  echo "<h4>Welcome, ".$_SESSION["fullname"]."!</h4>";
+  ?>
 <div class="row">
   <div class="col-xl-8">
     <h1>Admins</h1>
@@ -124,6 +126,26 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     echo $print;
     ?>
   </div>
+  <div class="col-xl-8">
+    <h1>Users</h1>
+    <?php
+    $queryString = "SELECT fullname,email,userID FROM users WHERE 1";
+    $stmt = $dbconn->prepare($queryString);
+    $stmt->execute();
+    $num = 0;
+    $print = '<Table class = "table"><tr><th>Full Name</th><th>Email</th><th>Grant Admin Privilleges</th><th>Delete</th></tr>';
+    while($result = $stmt->fetch()){
+      $num +=1;
+      $print = $print.'<tr><td>'.$result['fullname'].'</td><td><a href=mailto:'.$result['email'].'>'.$result['email'].'</a></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="makeA" value='.$result['userID'].' class="btn-sm">Make Admin</button></div></div></form></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteU" value='.$result['userID'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
+    }
+    $print = $print.'</table>';
+    if($num == 0){
+      $print = '<div class="jumbotron"><p>No users to display.</p></div>';
+    }
+    echo $print;
+    ?>
+  </div>
+</div>
   <div class="col-xl-8">
     <h1>Research Submissions</h1>
     <?php
@@ -158,26 +180,6 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     echo $print;
     ?>
   </div>
-  <div class="col-xl-8">
-    <h1>Users</h1>
-    <?php
-    $queryString = "SELECT fullname,email,userID FROM users WHERE 1";
-    $stmt = $dbconn->prepare($queryString);
-    $stmt->execute();
-    $num = 0;
-    $print = '<Table class = "table"><tr><th>Full Name</th><th>Email</th><th>Grant Admin Privilleges</th><th>Delete</th></tr>';
-    while($result = $stmt->fetch()){
-      $num +=1;
-      $print = $print.'<tr><td>'.$result['fullname'].'</td><td><a href=mailto:'.$result['email'].'>'.$result['email'].'</a></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="makeA" value='.$result['userID'].' class="btn-sm">Make Admin</button></div></div></form></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteU" value='.$result['userID'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
-    }
-    $print = $print.'</table>';
-    if($num == 0){
-      $print = '<div class="jumbotron"><p>No users to display.</p></div>';
-    }
-    echo $print;
-    ?>
-  </div>
-</div>
 </div>
 
 

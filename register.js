@@ -1,6 +1,6 @@
 (function($) {
     "use strict";
-	
+
 	// Register Form (code from: http://bootsnipp.com/snippets/featured/custom-login-registration-amp-forgot-password)
 	//----------------------------------------------
 	// Validation
@@ -20,6 +20,7 @@
   	    required: true,
   			email: true
   		},
+      reg_fullname: "required",
   		reg_agree: "required",
     },
 	  errorClass: "form-invalid",
@@ -33,5 +34,5 @@
     }
   });
 
-	
+
 })(jQuery);
