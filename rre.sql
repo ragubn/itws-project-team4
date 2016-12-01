@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2016 at 04:38 AM
+-- Generation Time: Dec 01, 2016 at 06:05 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -43,7 +43,9 @@ CREATE TABLE `research` (
 --
 
 INSERT INTO `research` (`id`, `title`, `category`, `rplink`, `overview`, `submitter`, `email`) VALUES
-(1, 'RRE', 2, '', 'We made this website. YO!!!!', 'Yo', 'yo@rpi.edu');
+(2, 'Rensselaer Research Explorer', 2, '', 'We created a website that allows researchers at RPI to publish their research for the community to view. It allows for users to submit research, anyone to view published research, and administrators to monitor content and users.', 'Web Systems Group 7', 'websysg7@rpi.edu'),
+(3, 'Improving fatty acids production by engineering dynamic pathway regulation and metabolic control', 1, 'http://www.pnas.org/content/111/31/11299.full.pdf', 'Global energy demand and environmental concerns have stimulated\r\nincreasing efforts to produce carbon-neutral fuels directly\r\nfrom renewable resources. Microbially derived aliphatic hydrocarbons,\r\nthe petroleum-replica fuels, have emerged as promising\r\nalternatives to meet this goal. However, engineering metabolic\r\npathways with high productivity and yield requires dynamic redistribution\r\nof cellular resources and optimal control of pathway\r\nexpression. Here we report a genetically encoded metabolic switch\r\nthat enables dynamic regulation of fatty acids (FA) biosynthesis in\r\nEscherichia coli. The engineered strains were able to dynamically\r\ncompensate the critical enzymes involved in the supply and consumption\r\nof malonyl-CoA and efficiently redirect carbon flux toward\r\nFA biosynthesis. Implementation of this metabolic control\r\nresulted in an oscillatory malonyl-CoA pattern and a balanced metabolism\r\nbetween cell growth and product formation, yielding\r\n15.7- and 2.1-fold improvement in FA titer compared with the\r\nwild-type strain and the strain carrying the uncontrolled metabolic\r\npathway. This study provides a new paradigm in metabolic engineering\r\nto control and optimize metabolic pathways facilitating the\r\nhigh-yield production of other malonyl-CoAâ€“derived compounds.', 'Peng Xu', 'xup@rpi.edu'),
+(4, 'Harnessing Topological Band Effects in Bismuth Telluride Selenide for Large Enhancements in Thermoelectric Properties through Isovalent Doping', 5, 'http://onlinelibrary.wiley.com/doi/10.1002/adma.201601256/full', 'Dilute isovalent sulfur doping simultaneously increases electrical conductivity and Seebeck coefficient in Bi2Te2Se nanoplates, and bulk pellets made from them. This unusual trend at high electron concentrations is underpinned by multifold increases in electron effective mass attributable to sulfur-induced band topology effects, providing a new way for accessing a high thermoelectric figure-of-merit in topological-insulator-based nanomaterials through doping.', 'System Administrator', 'admin@admin.com');
 
 -- --------------------------------------------------------
 
@@ -66,8 +68,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `password`, `salt`, `email`, `fullname`, `isAdmin`) VALUES
-(1, 'g7', '233e342efb656023828e223021d0a3e82f4d0f065fbab3865fd37ee6c8f4cfa9', '291d1bac130ea5b4858443cc34d5a177a7e108b7cb7e7021e173f31eb9f8cac0', 'g7@rpi.edu', 'Group 7', 0),
-(2, 'yo', '6d23d44e883b95ad2a73f9838c88c9350ec6ff722ac4a5a3bc088b6bba4c301b', 'ae156e8fe950f954e7b7fa3290e4e4b6312ace6f8a099913c6400e6a8a070631', 'yo@rpi.edu', 'Yo', 0);
+(3, 'admin', 'e4bce0c4cdd9d1908ab8e9ae5aa67a473f85249f92973363f9d1f63cec81b6df', 'de8da687af971d29b99fbf3a5ae8fae76e13e09cffe01d07998613034a0ad23e', 'admin@admin.com', 'System Administrator', 1),
+(4, 'websysg7', 'f3d4d102d8a6ea54f6caa9314189a9acdfeb2868a5c9435f72c0f2eccd2b140f', 'ffbfe077294d33f9aead3ff2ecd1378c204e9bdbd5f38093a95b360494b696a2', 'websysg7@rpi.edu', 'Web Systems Group 7', 0),
+(5, 'pxu', 'e0e7e49eba85adab6273fd6c14c7cec4c36fbeabe45363d0c7f699cfb87083d8', '48ffc2897ac74775a8e4e00068e67fbeb887cf7f11a41a450703eb374400df84', 'xup@rpi.edu', 'Peng Xu', 0);
 
 --
 -- Indexes for dumped tables
@@ -98,12 +101,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `research`
 --
 ALTER TABLE `research`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

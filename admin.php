@@ -105,7 +105,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
 ?>
 <div class="container">
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-xl-8">
     <h1>Admins</h1>
     <?php
     $queryString = "SELECT fullname,email,userID FROM users WHERE isAdmin=1";
@@ -115,7 +115,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     $print = '<Table class = "table"><tr><th>Full Name</th><th>Email</th><th>Revoke Privilleges</th></tr>';
     while($result = $stmt->fetch()){
       $num +=1;
-      $print = $print.'<tr><td>'.$result['fullname'].'</td><td>'.$result['email'].'</td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="revokeA" value='.$result['userID'].' class="btn-sm">Revoke</button></div></div></form></td></tr>';
+      $print = $print.'<tr><td>'.$result['fullname'].'</td><td><a href=mailto:'.$result['email'].'>'.$result['email'].'</a></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="revokeA" value='.$result['userID'].' class="btn-sm">Revoke</button></div></div></form></td></tr>';
     }
     $print = $print.'</table>';
     if($num == 0){
@@ -124,7 +124,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     echo $print;
     ?>
   </div>
-  <div class="col-md-8">
+  <div class="col-xl-8">
     <h1>Research Submissions</h1>
     <?php
     $queryString = "SELECT * FROM research WHERE 1";
@@ -149,7 +149,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
       else if ($result['category']==5){
         $cat = 'Nanotechnology and Advanced Materials';
       }
-      $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td>'.$result['rplink'].'</td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteR" value='.$result['id'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
+      $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td><a href='.$result['rplink'].'>'.$result['rplink'].'</a></td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteR" value='.$result['id'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
     }
     $print = $print.'</table>';
     if($num == 0){
@@ -158,7 +158,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     echo $print;
     ?>
   </div>
-  <div class="col-md-8">
+  <div class="col-xl-8">
     <h1>Users</h1>
     <?php
     $queryString = "SELECT fullname,email,userID FROM users WHERE 1";
@@ -168,7 +168,7 @@ echo "<h1>Welcome, ".$_SESSION["fullname"]."!</h1>";
     $print = '<Table class = "table"><tr><th>Full Name</th><th>Email</th><th>Grant Admin Privilleges</th><th>Delete</th></tr>';
     while($result = $stmt->fetch()){
       $num +=1;
-      $print = $print.'<tr><td>'.$result['fullname'].'</td><td>'.$result['email'].'</td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="makeA" value='.$result['userID'].' class="btn-sm">Make Admin</button></div></div></form></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteU" value='.$result['userID'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
+      $print = $print.'<tr><td>'.$result['fullname'].'</td><td><a href=mailto:'.$result['email'].'>'.$result['email'].'</a></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="makeA" value='.$result['userID'].' class="btn-sm">Make Admin</button></div></div></form></td><td><form  class="form" action="#" method="post"><div class="input-group-btn"><div  role="group"><button type="submit" name="deleteU" value='.$result['userID'].' class="btn-sm">Delete</button></div></div></form></td></tr>';
     }
     $print = $print.'</table>';
     if($num == 0){
