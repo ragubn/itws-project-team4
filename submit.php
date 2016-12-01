@@ -33,6 +33,7 @@ if (isset($_POST['login'])) {
   }
 }
 if(!isset($_SESSION['fullname'])){
+  $_SESSION['reject']="Invalid username or password.";
   header("Location: ./login.php");
 }
 ?>
@@ -68,7 +69,10 @@ if(!isset($_SESSION['fullname'])){
           <li class="active"><a href="submit.php">Submit</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Login</a></li>
+          <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
         </ul>
       </div>
     </div>

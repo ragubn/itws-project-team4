@@ -34,7 +34,10 @@ session_destroy();
         <li><a href="research.php">Research</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Login</a></li>
+        <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
       </ul>
     </div>
   </div>

@@ -1,7 +1,9 @@
 <?php
-if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
-  session_destroy();
+session_start();
+if(isset($_SESSION['reject'])){
+  $msg = $_SESSION['reject'];
 }
+session_destroy();
 try {
   $dbname = 'rre';
   $user = 'root';
@@ -72,20 +74,26 @@ if (isset($_POST['register'])) {
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="index.php">Home</a></li>
-        <li class="active"><a href="research.php">Research</a></li>
+        <li><a href="research.php">Research</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Login</a></li>
+        <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="text-center" style="padding:50px 0">
-  <div class="logo">login</div>
-  <div class="logosub">it is only necesasry to login if you want to submit research.</div>
+  <div class="logo">Submitter Login</div>
+  <div class="logosub">It is only necesasry to login if you want to submit research.</div>
   <?php
   if (isset($_POST['register'])) {
+    echo '<div class="logosub">'.$msg.'</div>';
+  }
+  if (isset($_SESSION['reject'])) {
     echo '<div class="logosub">'.$msg.'</div>';
   }
   ?>

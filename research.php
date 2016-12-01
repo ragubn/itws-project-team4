@@ -24,7 +24,7 @@ if (isset($_POST['query'])&& !empty($_POST['query'])){
   $stmt->bindParam(':query',$query);
   $stmt->execute();
   $num = 0;
-  $print = '<Table class = "table"><th>Title</th><th>Category</th><th>Link to Paper</th><th>Overview/Abstract</th><th>Submitter</th><th>Email</th></tr>';
+  $print = '<Table class = "table"><tr><th>Title</th><th>Category</th><th>Link to Paper</th><th>Overview/Abstract</th><th>Submitter</th><th>Email</th></tr>';
   while($result = $stmt->fetch()){
     $num +=1;
     if($result['category']==1){
@@ -116,7 +116,10 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
         <li class="active"><a href="research.php">Research</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Login</a></li>
+        <li><a href="admin_login.php"><p class="glyphicon glyphicon-log-in"></p> Admin Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.php"><p class="glyphicon glyphicon-log-in"></p> Submitter Login</a></li>
       </ul>
     </div>
   </div>
