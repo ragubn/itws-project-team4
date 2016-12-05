@@ -6,7 +6,7 @@ session_destroy();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <!-- setting title, linking to APIs, bootstrap, and styles -->
   <title>Rensselaer Research Explorer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,7 @@ session_destroy();
 </head>
 <body>
 
+<!-- navigation bar, using unordered list for page options-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -45,10 +46,11 @@ session_destroy();
   </div>
 </nav>
 
+
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <div>
+    <div class="col-sm-2 sidenav"> <!-- left column, contains RPI Mission statement and RPI Research Mission Statment -->
+      <div> 
         <h4>Rensselaer Mission Statement</h4>
         <p>Rensselaer educates the leaders of tomorrow for technologically based careers. We celebrate discovery, and the responsible application of technology, to create knowledge and global prosperity.</p>
       </div>
@@ -61,21 +63,23 @@ session_destroy();
        </ul>
       </div>
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left"> <!-- middle column, contains Welcome Statement -->
       <h1>Welcome</h1>
       <p>Research is an essential part of a university, and a valuable educational experience. By placing the research that an institution is currently partaking in on a central website, it allows students to see the opportunities that exist for them to get involved on campus. As well, it provides the ability for students who are taking part in research the ability to let others know what they are doing and see what other students are researching.</p>
       <hr>
     </div>
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav"> <!-- right colomn, contains news on Institutional Research -->
       <h4>Institutional research</h4>
       <p>The Rensselaer research enterprise in FY2013 has surpassed $100M in sponsored research expenditures broadly divided among five Signature Research Thrusts: Biotechnology and the Life Sciences; Computational Science and Engineering; Media, Arts, Science, and Technology; Energy, Environment, and Smart Systems; and Nanotechnology and Advanced Materials. Emanating from these pillars of the Rensselaer research ecosystem are five broad research platforms that have resulted from nearly $1.25 billion investment by the university. Through these research platforms, Rensselaer researchers are addressing global challenges with both urgency and impact.</p>
     </div>
   </div>
 </div>
 
-<footer class="container-fluid text-center">
+<!-- footer same for all pages -->
+<footer class="container-fluid text-center"> 
   <p>RPI 2016</p>
 </footer>
 
 </body>
 </html>
+
