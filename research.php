@@ -106,7 +106,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <!-- setting title, linking to APIs, bootstrap, and styles -->
   <title>Rensselaer Research Explorer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,7 +118,8 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
   <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
-
+  
+<!-- navigation bar, using unordered list for page options-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -145,9 +146,10 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
   </div>
 </nav>
 
+  
 <div class="container-fluid text-center">
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav"> <!-- Left column has links to categories of research-->
       <h4>Categories</h4>
       <form method="post" action="#">
         <button type="submit" class="btn-link" name="click" value = "1">Biotechnology and the Life Sciences</button>
@@ -157,7 +159,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
         <button type="submit" class="btn-link"  name="click" value = "5">Nanotechnology and Advanced Materials</button>
       </form>
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left"> <!-- middle column has search bar-->
       <h1>Research</h1>
       <p>Use the search bar below to find research, or click on a category to show all research in that area.</p>
       <div class="container">
@@ -165,6 +167,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
         <div class="col-md-12">
                 <div class="input-group" id="adv-search">
                   <form  class="form" action="#" method="post">
+                    <!-- input for search-->
                     <input type="text" class="form-control" name="query" placeholder="Search for RPI Research by Title or Author" />
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
@@ -189,6 +192,7 @@ if (isset($_POST['click'])&& !empty($_POST['click'])){
   </div>
 </div>
 
+<!-- footer same for all pages -->
 <footer class="container-fluid text-center">
   <p>RPI 2016</p>
 </footer>
