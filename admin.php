@@ -72,7 +72,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <!-- setting title, linking to APIs, bootstrap, and styles -->
   <title>Rensselaer Research Explorer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,6 +85,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
 </head>
 <body>
 
+<!-- navigation bar, using unordered list for page options, now displays Admin in nav-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -213,7 +214,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
 </div>
 
 
-
+<!-- footer same for all pages -->
 <footer class="container-fluid text-center">
   <p>RPI 2016</p>
 </footer>
