@@ -9,3 +9,5 @@ Sample user information-
 username: admin   password:adminadmin
 This username can be used to view the admin pages and the submitter pages.
 You can alternatively register to view the submitter pages.
+
+Github URL: <a href=https://github.com/ragubn/itws-project-team4>https://github.com/ragubn/itws-project-team4</a>
