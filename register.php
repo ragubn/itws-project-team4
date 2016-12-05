@@ -2,7 +2,7 @@
 //no one should be logged in on the homepage, so destroy the session to log them out.
 session_start();
 session_destroy();
-?>
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>

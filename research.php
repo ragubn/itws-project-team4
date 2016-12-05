@@ -1,10 +1,8 @@
 <?php
 //connect to the database
 try {
-  $dbname = 'rre';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+  require './config.php';
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$config['DB_NAME'], $config['DB_USERNAME'], $config['DB_PASSWORD']);
 }
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
@@ -55,7 +53,7 @@ if (isset($_POST['query'])&& !empty($_POST['query'])){
       $cat = 'Nanotechnology and Advanced Materials';
     }
     //add the research to the table
-    $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td>'.$result['rplink'].'</td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td></tr>';
+    $print = $print.'<tr><td>'.$result['title'].'</td><td>'.$cat.'</td><td><a href='.$result['rplink'].'>'.$result['rplink'].'</a></td><td>'.$result['overview'].'</td><td>'.$result['submitter'].'</td><td>'.$result['email'].'</td></tr>';
   }
   $print = $print.'</table>';
   //if no research exists given the parameter, then display that they should try again.

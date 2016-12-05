@@ -2,7 +2,7 @@
 session_start();
 //if invalid username or password set msg to the reject statement
 if(isset($_SESSION['reject'])){
-  $msg = $_SESSION['reject'];
+  $msg = $_SESSION['reject']; 
 }
 session_destroy();
 ?>

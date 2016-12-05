@@ -9,10 +9,8 @@ if(isset($_SESSION['reject'])){
 session_destroy();
 //connect to the database
 try {
-  $dbname = 'rre';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+  require './config.php';
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$config['DB_NAME'], $config['DB_USERNAME'], $config['DB_PASSWORD']);
 }
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();

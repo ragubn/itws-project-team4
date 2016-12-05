@@ -2,10 +2,8 @@
 session_start();
 //connect to the database
 try {
-  $dbname = 'rre';
-  $user = 'root';
-  $pass = '';
-  $dbconn = new PDO('mysql:host=localhost;dbname='.$dbname, $user, $pass);
+  require './config.php';
+  $dbconn = new PDO('mysql:host=localhost;dbname='.$config['DB_NAME'], $config['DB_USERNAME'], $config['DB_PASSWORD']);
 }
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
@@ -23,8 +21,8 @@ if (isset($_POST['login'])) {
   $login_stmt = $dbconn->prepare('SELECT fullname, isAdmin, userID FROM users WHERE username=:username AND password=:pass AND isAdmin=1');
   $login_stmt->execute(array(':username'=>$_POST['username'], ':pass'=>$salted));
 
-  //if a user exists and that user is an admin, set the session to include their info
-  if($user = $login_stmt->fetch() && )$user['isAdmin']==1){
+  //if a user exists set the session
+  if($user = $login_stmt->fetch()){
     $_SESSION['fullname']=$user['fullname'];
     $_SESSION['admin']=$user['isAdmin'];
     $_SESSION['id']=$user['userID'];
@@ -67,6 +65,7 @@ if (isset($_POST['makeA'])) {
 }
 //if the user isn't logged in and/or the user isn't an admin, redirect them to the login page
 if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
+  session_destroy();
   $_SESSION['reject']="Invalid username or password.";
   header("Location: ./admin_login.php");
 }
@@ -146,6 +145,7 @@ if(!isset($_SESSION['fullname']) || !isset($_SESSION['admin'])){
   </div>
   <div class="col-xl-8">
     <h1>Users</h1>
+    <h5>Please note: a user cannot be deleted if there is research associated with their account. Please remove their associated research before removing their account.</h5>
     <?php
     //dispay all users fullname, email, and userid
     $queryString = "SELECT fullname,email,userID FROM users WHERE 1";

@@ -1,7 +1,7 @@
 <?php
 //no one should be logged in on the homepage, so destroy the session to log them out.
 session_start();
-session_destroy();
+session_destroy(); 
 ?>
 
 <!DOCTYPE html>
