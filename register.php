@@ -5,7 +5,7 @@ session_destroy();
 ?> 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> <!-- setting title, linking to APIs, bootstrap, and styles -->
   <title>Rensselaer Research Explorer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,7 @@ session_destroy();
 </head>
 <body>
 
+  <!-- navigation bar, using unordered list for page options-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -44,7 +45,7 @@ session_destroy();
 </nav>
 
 
-<!-- REGISTRATION FORM -->
+<!-- Registration form -->
 <div class="text-center" style="padding:50px 0">
   <div class="logo">Register</div>
   <!-- Main Form -->
@@ -54,26 +55,32 @@ session_destroy();
       <div class="main-login-form">
         <div class="login-group">
           <div class="form-group has-error">
-            <label for="reg_username" class="sr-only">Username</label>
+            <!-- for username-->
+            <label for="reg_username" class="sr-only">Username</label> 
             <input type="text" class="form-control" id="reg_username" name="username" placeholder="username">
           </div>
           <div class="form-group has-error">
+            <!-- for password-->
             <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
           </div>
           <div class="form-group has-error">
+            <!-- to confirm password-->
             <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
           </div>
 
           <div class="form-group has-error">
+            <!-- for email-->
             <label for="reg_email" class="sr-only">Email</label>
             <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
           </div>
           <div class="form-group has-error">
+            <!-- for full name-->
             <label for="reg_fullname" class="sr-only">Full Name</label>
             <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
           </div>
 
           <div class="form-group login-group-checkbox has-error">
+            <!-- for terms and conditions-->
             <input type="checkbox" class="" id="reg_agree" name="reg_agree">
             <label for="reg_agree">I agree with <a href="http://dotcio.rpi.edu/policy/comec">Terms and Conditions</a></label>
           </div>
@@ -88,6 +95,7 @@ session_destroy();
   <!-- end:Main Form -->
 </div>
 
+ <!-- footer same for all pages -->
 <footer class="container-fluid text-center">
   <p>RPI 2016</p>
 </footer>
