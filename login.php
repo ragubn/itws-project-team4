@@ -1,9 +1,13 @@
 <?php
+//start a session
 session_start();
+//if the information to log in is incorrect, display an error
 if(isset($_SESSION['reject'])){
   $msg = $_SESSION['reject'];
 }
+//end a session if one exists
 session_destroy();
+//connect to the database
 try {
   $dbname = 'rre';
   $user = 'root';
@@ -13,19 +17,17 @@ try {
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
 }
-
-if (isset($_SESSION['fullname'])){
-  header("Location: ./login.php");
-}
-
+//if someone is trying to regsiter them, then attempt the add
 if (isset($_POST['register'])) {
-
+  //if the necessary information isn't filled out (fallback of JS) redirect back to register
   if (!isset($_POST['username']) || !isset($_POST['reg_password']) || !isset($_POST['reg_password_confirm']) || !isset($_POST['reg_fullname']) || !isset($_POST['reg_email'])) {
     header("Location: ./register.php");
   }
+  //if the values are empty of the necessary values (fallback of JS) redirect back to register
   if (empty($_POST['username']) || empty($_POST['reg_password']) || empty($_POST['reg_password_confirm']) || empty($_POST['reg_fullname']) || empty($_POST['reg_email'])) {
     header("Location: ./register.php");
   }
+  //confirm that passwords are the same (fallback of JS)
   if($_POST["reg_password"]!=$_POST["reg_password_confirm"]){
     header("Location: ./register.php");
   }
@@ -90,9 +92,11 @@ if (isset($_POST['register'])) {
   <div class="logo">Submitter Login</div>
   <div class="logosub">It is only necesasry to login if you want to submit research.</div>
   <?php
+  //if someone registered successfully then display this
   if (isset($_POST['register'])) {
     echo '<div class="logosub">'.$msg.'</div>';
   }
+  //if someone entered the incorrect information, then alert them of that
   if (isset($_SESSION['reject'])) {
     echo '<div class="logosub">'.$msg.'</div>';
   }

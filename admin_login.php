@@ -1,5 +1,6 @@
 <?php
 session_start();
+//if invalid username or password set msg to the reject statement
 if(isset($_SESSION['reject'])){
   $msg = $_SESSION['reject'];
 }
@@ -49,6 +50,7 @@ session_destroy();
   <div class="logo">Administrator Login</div>
   <div class="logosub">For help please contact a system administrator.</div>
   <?php
+  //display the alert that the username or password was incorrect.
   if (isset($_SESSION['reject'])) {
     echo '<div class="logosub">'.$msg.'</div>';
   }

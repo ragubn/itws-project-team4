@@ -1,8 +1,10 @@
 <?php
 session_start();
+//if someone isn't navigating here while trying to log in, make sure they're logged out.
 if(!isset($_POST['login']) && isset($_SESSION['fullname'])){
   session_destroy();
 }
+//connect to the database
 try {
   $dbname = 'rre';
   $user = 'root';
@@ -12,26 +14,32 @@ try {
 catch (Exception $e) {
   echo "Error: " . $e->getMessage();
 }
+//if someone is trying to log in, do that.
 if (isset($_POST['login'])) {
+  //desalt their password
   $salt_stmt = $dbconn->prepare('SELECT salt FROM users WHERE username=:username');
   $salt_stmt->execute(array('username'=>$_POST['username']));
   $res = $salt_stmt->fetch();
   $salt = ($res) ? $res[0] : '';
   $salted = hash('sha256', $salt . $_POST['password']);
 
+  //log them in if their credentials are correct
   $login_stmt = $dbconn->prepare('SELECT fullname, email FROM users WHERE username=:username AND password=:pass');
   $login_stmt->execute(array(':username'=>$_POST['username'], ':pass'=>$salted));
 
+  //set their fullname and email to be used later
   if($user = $login_stmt->fetch()){
     $_SESSION['fullname']=$user['fullname'];
     $_SESSION['email']=$user['email'];
   }
 
   else {
-    $err = 'Incorrect username or password.';
+    //if their username or password don't match then they cannot login.
+    $err = 'Invalid username or password.';
     header("Location: ./login.php");
   }
 }
+//if they aren't logged in, redirect them to the login page with a reject statement
 if(!isset($_SESSION['fullname'])){
   $_SESSION['reject']="Invalid username or password.";
   header("Location: ./login.php");
