@@ -1,3 +1,5 @@
+//form validation for register.php
+
 (function($) {
     "use strict";
 
@@ -5,18 +7,22 @@
 	//----------------------------------------------
 	// Validation
   $("#register-form").validate({
+    //requires username, password, password confirmation, email, full name, and agreement to terms to be filled out
   	rules: {
       username: "required",
   	  reg_password: {
+        //password nust be at least 7 characters
   			required: true,
   			minlength: 7
   		},
    		reg_password_confirm: {
+        //must be equal to reg_password
   			required: true,
   			minlength: 7,
   			equalTo: "#register-form [name=reg_password]"
   		},
   		reg_email: {
+        //must be valid email
   	    required: true,
   			email: true
   		},
@@ -25,12 +31,7 @@
     },
 	  errorClass: "form-invalid",
 	  errorPlacement: function( label, element ) {
-	    if( element.attr( "type" ) === "checkbox" || element.attr( "type" ) === "radio" ) {
-    		element.parent().append( label ); // this would append the label after all your checkboxes/labels (so the error-label will be the last element in <div class="controls"> )
-	    }
-			else {
-  	  	label.insertAfter( element ); // standard behaviour
-  	  }
+  	  label.insertAfter( element ); // standard behaviour
     }
   });
 
