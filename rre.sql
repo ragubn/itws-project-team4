@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2016 at 11:33 PM
+-- Generation Time: Dec 06, 2016 at 05:11 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -71,7 +71,7 @@ INSERT INTO `users` (`userID`, `username`, `password`, `salt`, `email`, `fullnam
 (3, 'admin', 'e4bce0c4cdd9d1908ab8e9ae5aa67a473f85249f92973363f9d1f63cec81b6df', 'de8da687af971d29b99fbf3a5ae8fae76e13e09cffe01d07998613034a0ad23e', 'admin@admin.com', 'System Administrator', 1),
 (4, 'websysg7', 'f3d4d102d8a6ea54f6caa9314189a9acdfeb2868a5c9435f72c0f2eccd2b140f', 'ffbfe077294d33f9aead3ff2ecd1378c204e9bdbd5f38093a95b360494b696a2', 'websysg7@rpi.edu', 'Web Systems Group 7', 0),
 (5, 'pxu', 'e0e7e49eba85adab6273fd6c14c7cec4c36fbeabe45363d0c7f699cfb87083d8', '48ffc2897ac74775a8e4e00068e67fbeb887cf7f11a41a450703eb374400df84', 'xup@rpi.edu', 'Peng Xu', 0),
-(6, '', '1558c3a9c2e87bc9692b8142f595bf1f5a0e5d91db3f5d9dd586474b835fb017', '1f687ab7fd804d71beb56c81b2f12e7e957213894f3e48f728ace662d230875e', '', '', 0);
+(18, 'websys', '38de351c8f5143102ad04b9b2d20ce7ce127cf0d6b11d7b909755e33748b41a1', '387a0513e30650588a5685309b3bce9e65fd84e1d671029edeb96f7745a1f8d3', 'websys@rpi.edu', 'Web Sys', 0);
 
 --
 -- Indexes for dumped tables
@@ -102,12 +102,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `research`
 --
 ALTER TABLE `research`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
